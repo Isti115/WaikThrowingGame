@@ -64,7 +64,7 @@ function enemy.draw()
 	-- love.graphics.circle("fill", enemy.x, enemy.y, 5)
 	
 	love.graphics.setColor(255, 0, 0)
-	love.graphics.print("ekcsuöl hitbox", 500, 100)
+	love.graphics.print("ekcsuöl hitboksz", 500, 100)
 	love.graphics.rectangle("line", enemy.x - enemy.hitbox / 2, player.y + (ballImage:getHeight() / 2) - 5, enemy.hitbox, 10)
 	love.graphics.setColor(255, 255, 255)
 end

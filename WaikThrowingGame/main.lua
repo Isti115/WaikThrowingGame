@@ -56,6 +56,10 @@ function love.update()
 end
 
 function love.keypressed(key)
+	if key == "f11" then
+		love.window.setFullscreen(not love.window.getFullscreen())
+	end
+	
 	player.keypressed(key)
 	enemy.keypressed(key)
 end
@@ -65,31 +69,36 @@ function love.keyreleased(key)
 end
 
 function shoot()
-	player.shots[#player.shots + 1] = {
-		-- startR = 50,
-		-- r = 0,
-		-- destR = 10,
-		
-		startX = player.x,
-		x = player.x,
-		destX = (300 * player.direction),
-		
-		direction = player.direction,
-		
-		startY = player.y,
-		maxY = 100
-	}
+	if #player.shots < 5 then
+		player.shots[#player.shots + 1] = {
+			-- startR = 50,
+			-- r = 0,
+			-- destR = 10,
+			
+			startX = player.x,
+			x = player.x,
+			destX = (300 * player.direction),
+			
+			direction = player.direction,
+			
+			startY = player.y,
+			maxY = 100
+		}
+	end
 end
 
 function love.draw()
 	love.graphics.setColor(0, 255, 0)
+	love.graphics.print("updét: mekszimum fájv bullecc end fullszkrín vit eff ileven", 100, 50)
 	love.graphics.print("júz di eró kíz tu múv öránd end pressz spész tu sút!!!", 100, 100)
 	love.graphics.print("szkór: " .. score, 100, 120)
 	love.graphics.setColor(255, 255, 255)
 	
 	enemy.draw()
 	
-	love.graphics.draw(player.image, player.x - ((player.image:getWidth() / 2) * player.direction), player.y, math.rad(0), player.direction, 1)
+	player.draw()
+	
+	-- love.graphics.draw(player.image, player.x - ((player.image:getWidth() / 2) * player.direction), player.y, math.rad(0), player.direction, 1)
 	-- love.graphics.circle("fill", player.x, player.y, 5)
 	
 	-- love.graphics.setColor(0, 255, 0)
