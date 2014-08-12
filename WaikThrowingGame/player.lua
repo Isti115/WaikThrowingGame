@@ -50,7 +50,7 @@ function player.draw()
 	if not player.isThrowing then
 		love.graphics.draw(ballImage, player.x, player.y + ((player.image:getHeight() - ballImage:getHeight()) / 2), math.rad(0), player.direction, 1)
 	end
-	print(player.isThrowing)
+	
 	love.graphics.draw(player.image, player.x - ((player.image:getWidth() / 2) * player.direction), player.y, math.rad(0), player.direction, 1)
 	-- love.graphics.circle("fill", player.x, player.y, 5)
 end

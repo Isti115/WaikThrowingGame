@@ -60,7 +60,7 @@ function enemy.keypressed(key)
 end
 
 function enemy.draw()
-	love.graphics.draw(enemy.image, enemy.x - (((enemy.image:getWidth() * enemy.scale) / 2) * enemy.direction), enemy.y, math.rad(0), enemy.scale * enemy.direction, enemy.scale)
+	love.graphics.draw(enemy.image, enemy.x - (((enemy.image:getWidth() * enemy.scale) / 2) * enemy.direction), --[[enemy.y--]] player.y + (ballImage:getHeight() / 2) - 5 - enemy.image:getHeight() * enemy.scale, math.rad(0), enemy.scale * enemy.direction, enemy.scale)
 	-- love.graphics.circle("fill", enemy.x, enemy.y, 5)
 	
 	love.graphics.setColor(255, 0, 0)
